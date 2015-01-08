@@ -1,0 +1,30 @@
+{
+  "name": "weixin-service",
+  "version": "0.0.0",
+  "description": "微信公众号服务 API 接口",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liuxiaodong/weixin-service.git"
+  },
+  "keywords": [
+    "weixin",
+    "wechat",
+    "weixin-service",
+    "service",
+    "api",
+    "weixin-api",
+    "wx",
+    "wechat-service",
+    "wechat-api"
+  ],
+  "author": "leaf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liuxiaodong/weixin-service/issues"
+  },
+  "homepage": "https://github.com/liuxiaodong/weixin-service"
+}
