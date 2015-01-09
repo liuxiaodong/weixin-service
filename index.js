@@ -1,1 +1,1 @@
-// TODO
+module.exports = require('./lib/wxService');
