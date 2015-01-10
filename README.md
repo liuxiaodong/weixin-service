@@ -32,10 +32,10 @@ npm install weixin-service --save
 		
 	```
 2. 引入时传入参数
-	* 引入时传入参数，根据参数可以有各种功能  
-	* 用户可以自己维护 ticket。在调用 weixin-service 传入的 ticket 可以是一个 component_verify_ticket 字符串，也可以是一个可以获取到 component_verify_ticket 的函数。
+	* 引入时传入参数，参数可以根据自己需求选择，但 app_id 与 app_secret 必传  
+	* 用户可以自己维护 ticket。在调用 weixin-service 时传入的 ticket 可以是一个 "component_verify_ticket" 字符串，也可以是一个可以获取到 "component_verify_ticket" 的函数。
 	* 也可以由 weixin-service 来维护 ticket，则可以不传 ticket。详见 `使用 3`
-	* 传入redis_options 时需要依赖redis。这样可以缓存 component_verify_ticket, ticket, component_access_token等参数到redis中，系统重启时也是优先重 redis 中读取。
+	* 传入redis_options 时需要依赖redis。这样 component_verify_ticket, ticket, component_access_token等凭证就会缓存到redis中，读取凭证时也优先从 redis 中读取，没取到再到微信请求获取。
 
 	```
 		var options = {
