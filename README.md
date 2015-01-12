@@ -1,7 +1,8 @@
 # weixin-service
 微信公众服务相关 API 接口封装。
 ---
-
+####微信文档
+<a href="https://open.weixin.qq.com/cgi-bin/frame?t=resource/res_main_tmpl&verify=1&lang=zh_CN">https://open.weixin.qq.com/cgi-bin/frame?t=resource/res_main_tmpl&verify=1&lang=zh_CN</a>
 ####安装
 ```
 npm install weixin-service --save
