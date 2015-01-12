@@ -78,4 +78,59 @@ npm install weixin-service --save
 		}
 		wxs.preAuthCode(<options>, function(err, ret){});
 	```
+6. 使用授权码换取公众号的授权信息
 
+	```
+		var options = {
+			app_id: 'your app_id',                             #可选
+			authorization_code: 'authorization_code;'          #授权码，必需
+		}
+		
+		wxs.authorization(options, function(err, ret){});
+	```
+	
+7. 通过刷新令牌刷新(获取)授权公众号的令牌
+
+	```
+		var options = {
+			app_id: 'your app_id',                                #可选
+			authorizer_appid: 'authorizer_appid',                 #授权账户id，必需
+			authorizer_refresh_token: 'authorizer_refresh_token;' #刷新令牌，必需
+		}
+		
+		wxs.refreshAccessToken(options, function(err, ret){});
+	```
+
+8. 获取授权方账户信息
+
+	```
+		var options = {
+			app_id: 'your app_id',                                #可选
+			authorizer_appid: 'authorizer_appid'                  #授权账户id，必需
+		}
+		
+		wxs.getAuthorizerInfo(options, function(err, ret){});
+	```
+9. 获取授权方的选项设置信息
+
+	```
+		var options = {
+			app_id: 'your app_id',                                #可选
+			authorizer_appid: 'authorizer_appid',                 #授权账户id，必需
+			option_name: 'option_name_value'                      #选项名称,必需
+		}
+		
+		wxs.getAuthorizerOption(options, function(err, ret){});
+	```
+10. 设置授权方的选项设置信息
+
+	```
+		var options = {
+			app_id: 'your app_id',                                #可选
+			authorizer_appid: 'authorizer_appid',                 #授权账户id，必需
+			option_name: 'option_name_value',                     #选项名称,必需
+			option_value: 'option_value'                          #设置选项值,必需
+		}
+		
+		wxs.getAuthorizerOption(options, function(err, ret){});
+	```
