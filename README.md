@@ -135,3 +135,9 @@ npm install weixin-service --save
 		
 		wxs.getAuthorizerOption(options, function(err, ret){});
 	```
+11. wxs 缓存 ticket 接口（用来获取 component_access_token）
+	
+	```
+		wxs.cacheTicket(component_verify_ticket, function(err, ret){});
+		
+	```
