@@ -50,7 +50,8 @@ npm install weixin-service --save
 		app.get('/url', wxs.enable());
 	```
 	* 应该放在验证合法性代码模块的后面
-3. 维护 ticket 并缓存
+3. 维护 ticket 并缓存  
+   *若前面已经解析了POST的数据，则此接口无效，可以用wxs.cacheTicket接口来缓存 component_access_token 详见 `11`
 
 	```
 		wsx.acceptNotice(req, function(err, ret){});
