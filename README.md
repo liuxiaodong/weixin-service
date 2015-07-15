@@ -1,7 +1,8 @@
 # weixin-service
 微信公众服务相关 API 接口封装。
 ---
-
+[![Build Status](https://travis-ci.org/liuxiaodong/weixin-service.png)](https://travis-ci.org/liuxiaodong/weixin-service)
+[![Coverage Status](https://coveralls.io/repos/liuxiaodong/weixin-service/badge.png)](https://coveralls.io/github/liuxiaodong/weixin-service)
 *** weixin-service 和 0.0.* 版本完全不兼容
 
 ####微信文档
