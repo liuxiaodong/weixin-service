@@ -3,3 +3,4 @@ node_modules
 dump.rdb
 config/*
 !config/_sample.json
+coverage
