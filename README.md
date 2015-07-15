@@ -56,7 +56,7 @@ npm install weixin-service --save
 
 `saveToken:` 保存第三方服务的 component_access_token 函数，默认保存到内存中  
 
-	```js
+	```
 	saveToken = function(token, callback){}  
 	token: {  
 		componentAccessToken: '',  
@@ -66,20 +66,20 @@ npm install weixin-service --save
 
 `getToken:` 获取 component_access_token 函数
 	
-	```js
+	```
 	saveToken = function(callback){ callback(null, token); }
 
 	```
 
 `saveTicket:` 保存微信推送的 component_verify_ticket 函数
 
-	```js
+	```
 	saveTicket = function(ticket){}
 	```
 
 `getTicket:` 获取 component_verify_ticket 函数
 
-	```js
+	```
 	getTicket: function(callback){ callback(ticket); }
 	```
 
