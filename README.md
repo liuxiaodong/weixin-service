@@ -2,6 +2,8 @@
 微信公众服务相关 API 接口封装。
 ---
 
+*** weixin-service 和 0.0.* 版本完全不兼容
+
 ####微信文档
 
 <a href="https://open.weixin.qq.com/cgi-bin/frame?t=resource/res_main_tmpl&verify=1&lang=zh_CN" target='_blank'>第三方服务开发文档</a>
@@ -11,8 +13,6 @@
 ```
 npm install weixin-service --save
 ```
-
-* weixin-service 和 0.0.* 版本完全不兼容
 
 ####使用
 
@@ -47,30 +47,41 @@ npm install weixin-service --save
 
 `encrypt_key:` 第三方服务加密 key
 
-`attrNameProcessors`: 数据属性的格式化处理，比如：{AppId: '1234'} -> {app_id: '1234'}
-	'keep': 保持不变 (AppId)
-	'lowerCase': 小写 (appid)
-	'underscored': 小写并以下划线分开 (app_id)
-	* 也可以自定义函数 function(attr){ return attr; }
+`attrNameProcessors`: 数据属性的格式化处理，比如：{AppId: '1234'} -> {app_id: '1234'}  
 
-`saveToken:` 保存第三方服务的 component_access_token 函数，默认保存到内存中
-	saveToken = function(token, callback){}
-	token: {
-		componentAccessToken: '',
-		expireTime: 7200
-	}
+	'keep': 保持不变 (AppId)  
+	'lowerCase': 小写 (appid)   
+	'underscored': 小写并以下划线分开 (app_id)  
+	* 也可以自定义函数 function(attr){ return attr; }  
+
+`saveToken:` 保存第三方服务的 component_access_token 函数，默认保存到内存中  
+
+	```js
+	saveToken = function(token, callback){}  
+	token: {  
+		componentAccessToken: '',  
+		expireTime: 7200  
+	}  
+	```
 
 `getToken:` 获取 component_access_token 函数
+	
+	```js
 	saveToken = function(callback){ callback(null, token); }
 
+	```
 
 `saveTicket:` 保存微信推送的 component_verify_ticket 函数
+
+	```js
 	saveTicket = function(ticket){}
-	
+	```
 
 `getTicket:` 获取 component_verify_ticket 函数
-	getTicket: function(callback){ callback(ticket); }
 
+	```js
+	getTicket: function(callback){ callback(ticket); }
+	```
 
 #### API
 
