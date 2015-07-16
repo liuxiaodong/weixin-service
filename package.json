@@ -1,6 +1,6 @@
 {
   "name": "weixin-service",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "微信公众号服务 API 接口",
   "main": "index.js",
   "scripts": {
