@@ -147,7 +147,8 @@ npm install weixin-service --save
 
 #### 消息回复
 
-`res:` express response
+`res:`  response  
+
 `media_id:` 素材 id
 
 1. 文本消息
