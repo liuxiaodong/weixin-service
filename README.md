@@ -143,3 +143,72 @@ npm install weixin-service --save
 	```
 		wxs.getOauthInfo(access_token, openid, function(err, ret){});
 	```
+
+
+#### 消息回复
+
+`res:` express response
+`media_id:` 素材 id
+
+1. 文本消息
+	
+	```
+		res.text('text');
+	```
+
+2. 图片
+
+	```
+		res.image(media_id);
+	```
+
+3. 录音
+
+	```
+		res.voice(media_id);
+	```
+
+4. 视频
+	
+	```
+		res.video({video: media_id, title:'title', description: 'description'});
+	```
+
+5. 音乐
+
+	```
+		res.music({thumb_media: media_id, title: 'title', description: 'description', music_url: 'music_url', hq_music_url: 'hq_music_url'})
+	```
+
+6. 图文消息
+
+	```
+		var news = [
+			{
+				title: 'title',
+				description: 'description',
+				pic_url: 'pic_url',
+				url : 'url'
+			}
+		];
+
+		res.news(news);
+	```
+
+7. 客服
+
+	```
+		res.transfer();
+	```
+
+8. IOT 设备消息
+
+	```
+		res.device('command');
+	```
+
+9. 回复空字符串
+
+	```
+		res.ok();
+	```
