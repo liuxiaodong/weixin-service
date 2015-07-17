@@ -116,7 +116,7 @@ var post = function (url, config, msg, openid, need_encrypt, callback){
       _format(result);
       if(!result.encrypt) return callback(null, result);
       if(result.encrypt){
-        var crypter = new WXBizMsgCrypt(config.token, config.encrypt_key, config.app_id);
+        var crypter = new WXBizMsgCrypt(config.token, config.encrypt_key, config.appid);
         var message = crypter.decrypt(result.encrypt).message;
         if(!message) return callback(result);
         xml2js.parseString(message, options, function(err, ret){
