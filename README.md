@@ -18,25 +18,25 @@ npm install weixin-service --save
 
 ####使用
 
-	```
-		var options = {
-			appid:        		 "your app_id",       
-			appsecret:    		 "your app_secret",      
-			token:         		 "token",                
-			encrypt_key:   		 "encrypt_key",          
+```js
+var options = {
+	appid:        		 "your app_id",       
+	appsecret:    		 "your app_secret",      
+	token:         		 "token",                
+	encrypt_key:   		 "encrypt_key",          
+}
 
-		}
-		
-		var wxs = require('weixin-service')(options);
+var wxs = require('weixin-service')(options);
 
-		var app = require('express')()
-	
-		app.get('/wechat/notice', wxs.enable());
-		app.post('/wechat/notice', wxs.noticeHandle(noticeHandle));
+var app = require('express')()
 
-		app.get('/wechat/:appid/event', wxs.enable());
-		app.post('/wechat/:appid/event', wxs.eventHandle(eventHandle))
-	```
+app.get('/wechat/notice', wxs.enable());
+app.post('/wechat/notice', wxs.noticeHandle(noticeHandle));
+
+app.get('/wechat/:appid/event', wxs.enable());
+app.post('/wechat/:appid/event', wxs.eventHandle(eventHandle))
+
+```
 	
 
 #### options 说明
@@ -51,98 +51,101 @@ npm install weixin-service --save
 
 `attrNameProcessors`: 数据属性的格式化处理，比如：{AppId: '1234'} -> {app_id: '1234'}  
 
-	'keep': 保持不变 (AppId)  
-	'lowerCase': 小写 (appid)   
-	'underscored': 小写并以下划线分开 (app_id)  
-	* 也可以自定义函数 function(attr){ return attr; }  
+```
+keep: 保持不变 (AppId)  
+lowerCase: 小写 (appid)   
+underscored: 小写并以下划线分开 (app_id)  
+也可以自定义函数 function(attr){ return attr; }  
+```
 
 `saveToken:` 保存第三方服务的 component_access_token 函数，默认保存到内存中  
 
-	```
-	saveToken = function(token, callback){}  
-	token: {  
-		componentAccessToken: '',  
-		expireTime: 7200  
-	}  
-	```
+```
+saveToken = function(token, callback){}  
+token: {  
+	componentAccessToken: '',  
+	expireTime: 7200  
+}  
+```
 
 `getToken:` 获取 component_access_token 函数
 	
-	```
-	saveToken = function(callback){ callback(null, token); }
+```
+saveToken = function(callback){ callback(null, token); }
 
-	```
+```
 
 `saveTicket:` 保存微信推送的 component_verify_ticket 函数
 
-	```
-	saveTicket = function(ticket){}
-	```
+```
+saveTicket = function(ticket){}
+```
 
 `getTicket:` 获取 component_verify_ticket 函数
 
-	```
-	getTicket: function(callback){ callback(ticket); }
-	```
+```
+getTicket: function(callback){ callback(ticket); }
+```
 
 #### API
 
 1. 获取可用的 component_access_token
 	
-	```
-		wxs.getLastComponentAccessToken(function(err, token){});
-	```
+```
+	wxs.getLastComponentAccessToken(function(err, token){});
+```
 	
 2. 获取预授权码 pre_auth_code
 
-	```
-		wxs.preAuthCode(function(err, ret){});
-	```
+```
+	wxs.preAuthCode(function(err, ret){});
+```
+
 3. 使用授权码换取公众号的授权信息
 
-	```
-		wxs.getAuthorizationiInfo(authorization_code, function(err, ret){});
-	```
-	
+```
+	wxs.getAuthorizationiInfo(authorization_code, function(err, ret){});
+```
+
 4. 通过刷新令牌刷新(获取)授权公众号的令牌
 
-	```
-		wxs.refreshToken(authorizer_appid, authorizer_refresh_token, function(err, ret){});
-	```
+```
+	wxs.refreshToken(authorizer_appid, authorizer_refresh_token, function(err, ret){});
+```
 
 5. 获取授权方账户信息
 
-	```
-		wxs.getAuthorizerInfo(authorizer_appid, function(err, ret){});
-	```
+```
+	wxs.getAuthorizerInfo(authorizer_appid, function(err, ret){});
+```
 6. 获取授权方的选项设置信息
 
-	```
-		wxs.getAuthorizerOption(authorizer_appid, option_name, function(err, ret){});
-	```
+```
+	wxs.getAuthorizerOption(authorizer_appid, option_name, function(err, ret){});
+```
 7. 设置授权方的选项设置信息
 
-	```
-		wxs.getAuthorizerOption(authorizer_appid, option_name, option_value, function(err, ret){});
-	```
+```
+	wxs.getAuthorizerOption(authorizer_appid, option_name, option_value, function(err, ret){});
+```
 
 8. 待公众号发起网页授权时通过 code 换取 accessToken 等信息
 
-	```
-		wxs.getOauthAccessToken(authorizer_appid, code, function(err, ret){});
-	```
+```
+	wxs.getOauthAccessToken(authorizer_appid, code, function(err, ret){});
+```
 
 9. 待公众号发起网页授权 刷新 accessToken（如果需要）
 
-	```
-		wxs.refreshOauthAccessToken(authorizer_appid, refresh_token, function(err, ret){});
-	```
+```
+	wxs.refreshOauthAccessToken(authorizer_appid, refresh_token, function(err, ret){});
+```
 
 10. 通过网页授权access_token获取用户基本信息（需授权作用域为snsapi_userinfo）
 	
-	```
-		wxs.getOauthInfo(access_token, openid, function(err, ret){});
-	```
+```
+	wxs.getOauthInfo(access_token, openid, function(err, ret){});
+```
 
 
 #### 消息回复
@@ -153,63 +156,63 @@ npm install weixin-service --save
 
 1. 文本消息
 	
-	```
-		res.text('text');
-	```
+```
+	res.text('text');
+```
 
 2. 图片
 
-	```
-		res.image(media_id);
-	```
+```
+	res.image(media_id);
+```
 
 3. 录音
 
-	```
-		res.voice(media_id);
-	```
+```
+	res.voice(media_id);
+```
 
 4. 视频
 	
-	```
-		res.video({video: media_id, title:'title', description: 'description'});
-	```
+```
+	res.video({video: media_id, title:'title', description: 'description'});
+```
 
 5. 音乐
 
-	```
-		res.music({thumb_media: media_id, title: 'title', description: 'description', music_url: 'music_url', hq_music_url: 'hq_music_url'})
-	```
+```
+	res.music({thumb_media: media_id, title: 'title', description: 'description', music_url: 'music_url', hq_music_url: 'hq_music_url'})
+```
 
 6. 图文消息
 
-	```
-		var news = [
-			{
-				title: 'title',
-				description: 'description',
-				pic_url: 'pic_url',
-				url : 'url'
-			}
-		];
+```
+	var news = [
+		{
+			title: 'title',
+			description: 'description',
+			pic_url: 'pic_url',
+			url : 'url'
+		}
+	];
 
-		res.news(news);
-	```
+	res.news(news);
+```
 
 7. 客服
 
-	```
-		res.transfer();
-	```
+```
+	res.transfer();
+```
 
 8. IOT 设备消息
 
-	```
-		res.device('command');
-	```
+```
+	res.device('command');
+```
 
 9. 回复空字符串
 
-	```
-		res.ok();
-	```
+```
+	res.ok();
+```
