@@ -89,59 +89,61 @@ getTicket: function(callback){ callback(ticket); }
 
 #### API
 
-获取可用的 component_access_token
+* 配置 request 请求的 options，参照 <a href="https://github.com/node-modules/urllib">urllib</a>
+
+* 获取可用的 component_access_token
 	
 ```
 	wxs.getLastComponentAccessToken(function(err, token){});
 ```
 	
-获取预授权码 pre_auth_code
+* 获取预授权码 pre_auth_code
 
 ```
 	wxs.preAuthCode(function(err, ret){});
 ```
 
-使用授权码换取公众号的授权信息
+* 使用授权码换取公众号的授权信息
 
 ```
 	wxs.getAuthorizationiInfo(authorization_code, function(err, ret){});
 ```
 
-通过刷新令牌刷新(获取)授权公众号的令牌
+* 通过刷新令牌刷新(获取)授权公众号的令牌
 
 ```
 	wxs.refreshToken(authorizer_appid, authorizer_refresh_token, function(err, ret){});
 ```
 
-获取授权方账户信息
+* 获取授权方账户信息
 
 ```
 	wxs.getAuthorizerInfo(authorizer_appid, function(err, ret){});
 ```
-获取授权方的选项设置信息
+* 获取授权方的选项设置信息
 
 ```
 	wxs.getAuthorizerOption(authorizer_appid, option_name, function(err, ret){});
 ```
-设置授权方的选项设置信息
+* 设置授权方的选项设置信息
 
 ```
 	wxs.getAuthorizerOption(authorizer_appid, option_name, option_value, function(err, ret){});
 ```
 
-待公众号发起网页授权时通过 code 换取 accessToken 等信息
+* 待公众号发起网页授权时通过 code 换取 accessToken 等信息
 
 ```
 	wxs.getOauthAccessToken(authorizer_appid, code, function(err, ret){});
 ```
 
-待公众号发起网页授权 刷新 accessToken（如果需要）
+* 待公众号发起网页授权 刷新 accessToken（如果需要）
 
 ```
 	wxs.refreshOauthAccessToken(authorizer_appid, refresh_token, function(err, ret){});
 ```
 
-通过网页授权access_token获取用户基本信息（需授权作用域为snsapi_userinfo）
+* 通过网页授权access_token获取用户基本信息（需授权作用域为snsapi_userinfo）
 	
 ```
 	wxs.getOauthInfo(access_token, openid, function(err, ret){});
@@ -154,37 +156,37 @@ getTicket: function(callback){ callback(ticket); }
 
 `media_id:` 素材 id
 
-文本消息
+* 文本消息
 	
 ```
 	res.text('text');
 ```
 
-图片
+* 图片
 
 ```
 	res.image(media_id);
 ```
 
-录音
+* 录音
 
 ```
 	res.voice(media_id);
 ```
 
-视频
+* 视频
 	
 ```
 	res.video({video: media_id, title:'title', description: 'description'});
 ```
 
-音乐
+* 音乐
 
 ```
 	res.music({thumb_media: media_id, title: 'title', description: 'description', music_url: 'music_url', hq_music_url: 'hq_music_url'})
 ```
 
-图文消息
+* 图文消息
 
 ```
 	var news = [
@@ -199,19 +201,19 @@ getTicket: function(callback){ callback(ticket); }
 	res.news(news);
 ```
 
-客服
+* 客服
 
 ```
 	res.transfer();
 ```
 
-IOT 设备消息
+* IOT 设备消息
 
 ```
 	res.device('command');
 ```
 
-回复空字符串
+* 回复空字符串
 
 ```
 	res.ok();
