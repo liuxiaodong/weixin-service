@@ -91,6 +91,12 @@ getTicket: function(callback){ callback(ticket); }
 
 * 配置 request 请求的 options，参照 <a href="https://github.com/node-modules/urllib">urllib</a>
 
+```
+	wxs.setOpts({
+		timeout: 10000
+	})
+```
+
 * 获取可用的 component_access_token
 	
 ```
