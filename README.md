@@ -3,6 +3,7 @@
 ---
 [![Build Status](https://travis-ci.org/liuxiaodong/weixin-service.png)](https://travis-ci.org/liuxiaodong/weixin-service)
 [![Coverage Status](https://coveralls.io/repos/liuxiaodong/weixin-service/badge.png)](https://coveralls.io/github/liuxiaodong/weixin-service)  
+[![Code Climate](https://codeclimate.com/github/liuxiaodong/weixin-service/badges/gpa.svg)](https://codeclimate.com/github/liuxiaodong/weixin-service)
 
 * weixin-service 1.* 和 0.* 版本完全不兼容
 
